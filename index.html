@@ -1,0 +1,254 @@
+</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Bachha ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+      font-family: "Segoe UI", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.7);
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); opacity: 0; }
+      20% { opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 28px;
+      padding: 34px 28px 38px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+      animation: popIn 0.9s ease;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #e11d48;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .wish {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      min-height: 72px;
+      margin-bottom: 26px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ec4899, #db2777);
+      border: none;
+      border-radius: 999px;
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(219, 39, 119, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(219, 39, 119, 0.6);
+    }
+
+    .signature {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* side buttons */
+    .side-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 3;
+    }
+
+    .side-left {
+      left: -60px;
+    }
+
+    .side-right {
+      right: -60px;
+    }
+
+    .side-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .side-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="card">
+    <div class="side-buttons side-left">
+      <div class="side-btn" onclick="flowerWish()">🌸</div>
+      <div class="side-btn" onclick="teddyWish()">🧸</div>
+    </div>
+
+    <div class="side-buttons side-right">
+      <div class="side-btn" onclick="heartWish()">❤️</div>
+    </div>
+
+    <h1>Happy Valentine’s Day ❤️</h1>
+    <div class="subtitle">For my bachha, always</div>
+    <div class="wish" id="wish">Tap anything, my love 💕</div>
+
+    <div class="buttons">
+      <button onclick="nextWish()">Love Note 💕</button>
+      <button onclick="sweetWish()">Sweet Words 🍯</button>
+      <button onclick="promiseWish()">Promises 🤍</button>
+      <button onclick="missWish()">When I Miss You 💌</button>
+    </div>
+
+    <div class="signature">With all my heart</div>
+  </div>
+
+  <script>
+    const loveWishes = [
+      "You are my safest place and my biggest blessing, bachha.",
+      "Every smile of yours makes my world feel complete.",
+      "You are not just my Valentine, you are my forever.",
+      "With you, even ordinary moments feel magical."
+    ];
+
+    const sweetWishes = [
+      "Your smile is my favorite view.",
+      "You make my heart feel at home.",
+      "Being yours is my favorite thing.",
+      "You are softer than all my worries."
+    ];
+
+    const promiseWishes = [
+      "I promise to stand by you in every season.",
+      "I promise to choose you, every single day.",
+      "I promise to protect your heart like my own.",
+      "I promise my love will never feel heavy."
+    ];
+
+    const missWishes = [
+      "Even when you are not here, my heart feels you.",
+      "I miss you in the quiet moments the most.",
+      "Distance only reminds me how deeply I love you.",
+      "Missing you is proof of how real my love is."
+    ];
+
+    const flowerWishes = [
+      "If love had a smell, it would be like fresh flowers and you.",
+      "Each flower reminds me of a reason I love you.",
+      "I would pick every flower just to see you smile."
+    ];
+
+    const teddyWishes = [
+      "Imagine this teddy hugging you tight from me.",
+      "Whenever you miss me, hug this teddy for extra love.",
+      "Soft like a teddy, warm like my love for you."
+    ];
+
+    const heartWishes = [
+      "My heart chose you quietly, and it never changed.",
+      "Every heartbeat whispers your name.",
+      "You live inside my heart, rent free, forever."
+    ];
+
+    let index = 0;
+
+    function showWish(list) {
+      const el = document.getElementById("wish");
+      el.style.opacity = 0;
+      el.style.transform = "translateY(6px)";
+      setTimeout(() => {
+        el.innerText = list[index % list.length];
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+        index++;
+      }, 220);
+    }
+
+    function nextWish() { showWish(loveWishes); }
+    function sweetWish() { showWish(sweetWishes); }
+    function promiseWish() { showWish(promiseWishes); }
+    function missWish() { showWish(missWishes); }
+    function flowerWish() { showWish(flowerWishes); }
+    function teddyWish() { showWish(teddyWishes); }
+    function heartWish() { showWish(heartWishes); }
+
+    const heartsContainer = document.getElementById("hearts");
+    for (let i = 0; i < 18; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤";
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDelay = Math.random() * 8 + "s";
+      heart.style.fontSize = 14 + Math.random() * 16 + "px";
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
